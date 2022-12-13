@@ -1,0 +1,214 @@
+/* ------------------- Style Resets ------------------- */
+
+* {
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+ul,
+ol {
+    list-style: none;
+}
+
+/* ------------------- Variables -------------------*/
+
+:root {
+    /*colours*/
+    --clr-accent-0:#FFFFFF; 
+    --clr-accent-1:#FEF294; /*yellows*/
+    --clr-accent-2:#FAD164;
+
+    --clr-primary-1:#E85957; /*reds*/
+    --clr-primary-2:#B94A51;
+
+    --clr-gradient-lr:linear-gradient(to right, var(--clr-accent-2), var(--clr-primary-2));
+    --clr-gradient-rl:linear-gradient(to lef, var(--clr-accent-2), var(--clr-primary-2));
+    --clr-gradient-tb:linear-gradient(to bottom, var(--clr-accent-2), var(--clr-primary-2));
+
+    --clr-block-1:#00223F; /*blue*/
+    --clr-block-2:#140F0F; /*purple*/
+    --clr-block-3:#130F14; /*brown*/
+
+    --clr-bg-1:#101010;
+
+    /*sizing*/
+    --spc-tiny: 0.125rem;
+    --spc-small: 1rem;
+    --spc-med: 2rem;
+    --spc-large: 4rem;
+
+    --fs-text: 1.2rem;
+    --fs-nav: 2.5rem;
+    --fs-title: 2rem;
+    --fs-subtitle: 1.5rem;
+
+}
+
+/* ------------------- Global Styles -------------------*/
+
+/*text*/
+
+h1,
+h1 a {
+    font-family: 'Geo', sans-serif;
+    font-weight: 400;
+    color: var(--clr-accent-0);
+    font-size: var(--fs-nav);
+}
+
+h2,
+h2 a {
+    font-family: 'Geo', sans-serif;
+    font-weight: 400;
+    color: var(--clr-accent-0);
+    font-size: var(--fs-title);
+    text-decoration: none;
+}
+
+h3,
+h3 a {
+    font-family: 'Geo', sans-serif;
+    font-weight: 400;
+    color: var(--clr-accent-0);
+    font-size: var(--fs-subtitle);
+}
+
+
+p,
+p a {
+    font-family: 'Calibri', sans-serif;
+    color: var(--clr-accent-0);
+    font-size: var(--fs-text);
+}
+
+/*layout*/
+
+body {
+    background-color: #000;
+    display: grid;
+    grid-template-columns: 1fr minmax(40em, 70em) 1fr;
+}
+
+header {
+    position: fixed;
+    width: 100%;
+    max-width: 70em;
+    background-color: var(--clr-bg-1);
+    z-index: 999;
+}
+
+main {
+    margin: var(--spc-med);
+}
+
+.background {
+    background-color: var(--clr-bg-1);
+}
+
+/* ------------------- Global Classes -------------------*/
+
+/*Navigation*/
+.navgrid {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: var(--spc-tiny) var(--spc-large) var(--spc-tiny);
+    text-align: center;
+}
+
+nav h1 {
+    padding-top: 0.7rem;
+}
+
+.nav-gradient {
+    grid-column: span 4;
+    background-image: var(--clr-gradient-lr);
+}
+
+.logo {
+    aspect-ratio: 1;
+    height: var(--spc-large);
+}
+
+/*Glow effects*/
+
+div[data-glow="true"] {
+	box-shadow: 0px 0px 4px var(--clr-accent-1);
+}
+
+div[data-hoverglow="true"]:hover {
+    box-shadow: 0px 0px 4px var(--clr-accent-1);
+    
+}
+
+a[data-glow="true"] {
+	text-shadow: 0px 0px 3px var(--clr-accent-1);
+}
+
+a[data-hoverglow="true"]:hover {
+    text-shadow: 0px 0px 6px var(--clr-accent-1);
+    
+}
+
+.line {
+    width: 100%;
+    height: var(--spc-tiny);
+    background-image: var(--clr-gradient-lr);
+}
+
+.separator-med {
+    height: var(--spc-med);
+    width: 100%;
+}
+
+.separator-large {
+    height: var(--spc-large);
+    width: 100%;
+}
+
+/* ------------------- Homepage Classes -------------------*/
+
+.homelogo {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    height: 10em;
+}
+
+.homename {
+    width: 20em;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.noitatext {
+    display: inline;
+    position: relative;
+    top: 0.3em;
+    height: 2.5rem;
+}
+
+.profilecontainer {
+    display: flex;
+    width: 100%;
+}
+
+.profile {
+    border: 1em solid;
+    background-color: var(--clr-block-2);
+    padding: var(--spc-small);
+    border-image-source: var(--clr-gradient-tb);
+    border-image-slice: 1;
+    border-width:var(--spc-tiny);
+    flex: 1 1 0px;
+    min-width: 15em;
+    margin: var(--spc-small);
+}
