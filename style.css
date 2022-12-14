@@ -94,8 +94,11 @@ p a {
 body {
     background-color: #000;
     display: grid;
-    grid-template-columns: 1fr minmax(40em, 70em) 1fr;
+    grid-template-columns: 1fr minmax(20em, 70em) 1fr;
     min-height: 100vh;
+    background-image:url(img/bg2.jpg);
+    background-position:center top;
+    background-size: cover;
 }
 
 header {
@@ -242,6 +245,12 @@ a[data-hoverglow="true"]:hover {
 
 /* ------------------- Homepage Classes -------------------*/
 
+.heading-logo {
+    background-image:url(img/bg.jpg);
+    background-position:center bottom;
+    background-attachment: scroll;
+}
+
 .homelogo {
     display: block;
     margin-left: auto;
@@ -265,8 +274,11 @@ a[data-hoverglow="true"]:hover {
 
 .profilecontainer {
     display: flex;
+    flex-wrap: wrap;
     width: 100%;
     overflow: hidden;
+    gap: var(--spc-small);
+    justify-content: center;
 }
 
 .profile {
@@ -276,7 +288,8 @@ a[data-hoverglow="true"]:hover {
     border-image-source: var(--clr-gradient-tb);
     border-image-slice: 1;
     border-width:var(--spc-tiny);
-    flex: 1 1 0px;
-    min-width: 15em;
-    margin: var(--spc-small);
+    flex-basis: 300px;
+    flex-grow: 1;
+    flex-shrink: 1;
+    max-width: 35em;
 }
