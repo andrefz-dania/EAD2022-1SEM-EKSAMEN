@@ -43,6 +43,7 @@ ol {
     --spc-small: 1rem;
     --spc-med: 2rem;
     --spc-large: 4rem;
+    --spc-topoffset: -4.25rem;
 
     --fs-text: 1.2rem;
     --fs-nav: 2.5rem;
@@ -94,6 +95,7 @@ body {
     background-color: #000;
     display: grid;
     grid-template-columns: 1fr minmax(40em, 70em) 1fr;
+    min-height: 100vh;
 }
 
 header {
@@ -102,6 +104,7 @@ header {
     max-width: 70em;
     background-color: var(--clr-bg-1);
     z-index: 999;
+    height: calc(var(--spc-topoffset)*-1);
 }
 
 main {
@@ -123,8 +126,19 @@ main {
     text-align: center;
 }
 
-nav h1 {
-    padding-top: 0.7rem;
+.navgrid-overlay {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: var(--spc-tiny) var(--spc-large) var(--spc-tiny);
+    text-align: center;
+    position: relative;
+    top: var(--spc-topoffset);
+    z-index: 0;
+}
+
+.navgrid-overlay h1 {
+    padding-top: 0.6rem;
 }
 
 .nav-gradient {
@@ -137,7 +151,51 @@ nav h1 {
     height: var(--spc-large);
 }
 
+.eye {
+    scale: 2;
+    position: relative;
+    top: -0.5rem;
+
+}
+
+/*Animated particles*/
+
+.animation-falling {
+    width: calc((50%) + (1rem));
+    position: relative;
+    top: -0.94rem;
+    background-color:transparent;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.anim-particle {
+    position: relative;
+    width: var(--spc-tiny);
+    height: var(--spc-tiny);
+    background-color: var(--clr-accent-0);
+    box-shadow: 0px 0px 4px var(--clr-accent-1);
+    animation-name: fallingparticles;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+
+@keyframes fallingparticles {
+    0%   {
+        top: 0;
+    }
+    100% {
+        top: 2rem;
+        background-color: var(--clr-block-1);
+    }
+}
+
 /*Glow effects*/
+
+div[data-hidden="true"] {
+    background-color: transparent;
+}
 
 div[data-glow="true"] {
 	box-shadow: 0px 0px 4px var(--clr-accent-1);
@@ -157,6 +215,8 @@ a[data-hoverglow="true"]:hover {
     
 }
 
+/*Objects*/
+
 .line {
     width: 100%;
     height: var(--spc-tiny);
@@ -171,6 +231,13 @@ a[data-hoverglow="true"]:hover {
 .separator-large {
     height: var(--spc-large);
     width: 100%;
+}
+
+.glowbar {
+    width: 100%;
+    background-color: var(--clr-accent-0);
+    z-index: 9999;
+    height: var(--spc-tiny);
 }
 
 /* ------------------- Homepage Classes -------------------*/
@@ -199,6 +266,7 @@ a[data-hoverglow="true"]:hover {
 .profilecontainer {
     display: flex;
     width: 100%;
+    overflow: hidden;
 }
 
 .profile {
