@@ -322,13 +322,16 @@ a[data-hoverglow="true"]:hover {
     }
     
     .navgrid-overlay {
-        display: none;
+       /* display: none; */
         background-color: rgba(0, 0, 0, 0.550);
         grid-template-columns: 1fr;
         grid-template-rows: auto;
         z-index: 3 !important;
         top: 0;
         backdrop-filter: blur(0.7em);
+        transform: scaleY(0);
+        transition: transform 200ms ease-in-out;
+        transform-origin: top;
     }
     
     .navgrid-overlay h1 {
@@ -356,13 +359,30 @@ a[data-hoverglow="true"]:hover {
 
 .navtoggle:checked ~ .navgrid-overlay{
     display: grid;
+    transform: scaleY(1);
 
 }
 
-.navtoggle:checked ~ .navgrid .topbar .borgarline{
+.navtoggle:checked ~ .navgrid .borgarline{
     box-shadow: 0px 0px 3px var(--clr-accent-1);
     background-image: none;
     background-color: var(--clr-accent-0);
+}
+
+.navtoggle:checked ~ .navgrid .x1{
+    position: relative;
+    rotate: 45deg;
+    top: 0.65em;
+}
+
+.navtoggle:checked ~ .navgrid .x2{
+    display: none;
+}
+
+.navtoggle:checked ~ .navgrid .x3{
+    position: relative;
+    rotate: -45deg;
+    top: -0.7em;
 }
 
 /* ------------------- Homepage Classes -------------------*/
