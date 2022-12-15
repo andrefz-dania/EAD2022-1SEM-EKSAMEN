@@ -17,6 +17,10 @@ ol {
     list-style: none;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 /* ------------------- Variables -------------------*/
 
 :root {
@@ -113,6 +117,12 @@ header {
 
 main {
     margin: var(--spc-med);
+}
+
+footer {
+    text-align: center;
+    opacity: 0.7;
+    padding: var(--spc-small);
 }
 
 .background {
@@ -216,7 +226,6 @@ a[data-glow="true"] {
 
 a[data-hoverglow="true"]:hover {
     text-shadow: 0px 0px 6px var(--clr-accent-1);
-    
 }
 
 /*Objects*/
@@ -242,6 +251,118 @@ a[data-hoverglow="true"]:hover {
     background-color: var(--clr-accent-0);
     z-index: 9999;
     height: var(--spc-tiny);
+}
+
+/* ------------------- Responsive Elements -------------------*/
+
+.mobile-only {
+    display: none;
+}
+
+.navtoggle {
+    display: none;
+}
+
+.m-logo {
+    height: 80%;
+    padding-top: 4px;
+    position: absolute;
+    left: 1rem;
+}
+
+.borgar {
+    position: absolute;
+    display: none;
+    height: var(--spc-large);
+    width: calc(var(--spc-large) * 1.2);
+    right: 0;
+    top: var(--spc-tiny);
+    padding-right: var(--spc-small);
+    padding-left: var(--spc-small);
+}
+
+.borgarline {
+
+    width: 100%;
+    height: calc(var(--spc-tiny) * 1.5);
+    background-image: var(--clr-gradient-lr);
+}
+
+.borgar:hover .borgarline{
+    box-shadow: 0px 0px 6px var(--clr-accent-1);
+    background-image: none;
+    background-color: var(--clr-accent-0);
+}
+
+.m-topbar {
+    display: none;
+}
+
+@media (max-width:40em) {
+    .mobile-only {
+        display: block;
+    }
+
+    .m-topbar {
+        display: block;
+        height: var(--spc-large);
+    }
+
+    .borgar {
+        display: flex;
+        flex-direction: column;
+        justify-content:space-evenly;
+    }
+
+    .navgrid {
+        grid-template-columns: 1fr;
+        grid-template-rows: var(--spc-tiny) 0 0 0 var(--spc-large) var(--spc-tiny);
+        text-align: center;
+        z-index: 10;
+    }
+    
+    .navgrid-overlay {
+        display: none;
+        background-color: rgba(0, 0, 0, 0.550);
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+        z-index: 3 !important;
+        top: 0;
+        backdrop-filter: blur(0.7em);
+    }
+    
+    .navgrid-overlay h1 {
+        color: var(--clr-accent-2);
+        padding-top: 0;
+        padding: clamp(0vh, 5vh, 20vh);
+    }
+
+    a[data-glow="true"] h1 {
+        text-shadow: 0px 0px 3px var(--clr-accent-1);
+        color: var(--clr-accent-0);
+    }
+    
+    a[data-hoverglow="true"] h1:hover {
+        text-shadow: 0px 0px 6px var(--clr-accent-1);
+        color: var(--clr-accent-0);
+    }
+    
+    .nav-gradient {
+        grid-column: span 1;
+        background-image: var(--clr-gradient-lr);
+    }
+    
+}
+
+.navtoggle:checked ~ .navgrid-overlay{
+    display: grid;
+
+}
+
+.navtoggle:checked ~ .navgrid .topbar .borgarline{
+    box-shadow: 0px 0px 3px var(--clr-accent-1);
+    background-image: none;
+    background-color: var(--clr-accent-0);
 }
 
 /* ------------------- Homepage Classes -------------------*/
@@ -392,3 +513,4 @@ a[data-hoverglow="true"]:hover {
 .socbutton:hover {
     opacity: 1;
 }
+
