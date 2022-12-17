@@ -561,3 +561,87 @@ a[data-hoverglow="true"]:hover {
     opacity: 1;
 }
 
+/* ------------------- Games Classes -------------------*/
+
+.ytembed {
+    display: flex;
+    flex-direction: column;
+    padding:var(--spc-small)
+}
+
+.ytembed iframe{
+    display: flex;
+    width: 100%;
+    max-width: 37em;
+    min-height: 10em;
+    margin-right: auto;
+    margin-left: auto;
+    aspect-ratio: 16 / 9;
+}
+
+.gamecard {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spc-small);
+    padding-block: 1em;
+    border: 1em solid;
+    background-color: var(--clr-block-2);
+    border-image-source: var(--clr-gradient-tb2);
+    border-image-slice: 1;
+    border-width:var(--spc-tiny);
+    text-align: center;
+    box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.350);
+}
+
+.gamecard-desc {
+    text-align: left;
+    padding:var(--spc-small)
+}
+
+.span2 {
+    grid-column: span 2 ;
+}
+
+.storeicons {
+    display:inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: var(--spc-med);
+}
+
+.storeicons a img {
+    max-height: var(--spc-large);
+    opacity: 0.35;
+}
+
+.storeicons *:hover {
+    opacity: 1;
+}
+
+.uppercase {
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+.gamecard p a {
+    color: var(--clr-accent-1);
+}
+
+.gamecard p a:hover {
+    color: var(--clr-accent-0);
+    text-shadow: 0px 0px 6px var(--clr-accent-1);
+}
+
+@media (max-width:50em) {
+    .gamecard {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+    .span2 {
+        grid-column: span 1 ;
+    }
+    .gamecard-desc {
+        text-align: center;
+    }
+}
