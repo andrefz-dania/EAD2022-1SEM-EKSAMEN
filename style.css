@@ -114,6 +114,12 @@ header {
     height: calc(var(--spc-topoffset)*-1);
 }
 
+.headertext {
+    margin: var(--spc-med);
+    text-align: center;
+    text-shadow: 0px 0px 15px black ;
+}
+
 main {
     margin: var(--spc-med);
 }
@@ -473,13 +479,16 @@ a[data-hoverglow="true"]:hover {
     grid-template-columns: 1fr 1fr;
     gap: var(--spc-small);
     padding-block: 1em;
+
+    text-align: center;
+    /*
     border: 1em solid;
     background-color: var(--clr-block-2);
     border-image-source: var(--clr-gradient-tb2);
     border-image-slice: 1;
     border-width:var(--spc-tiny);
-    text-align: center;
     box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.350);
+    */
 }
 
 .gamecard-desc {
@@ -578,6 +587,90 @@ a[data-hoverglow="true"]:hover {
 
 .presskit-subgrid p {
     padding-bottom: var(--spc-small);
+}
+
+/* ------------------- Contact Classes -------------------*/
+
+.contactbox {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spc-med);
+    text-align: center;
+    justify-content: center;
+}
+
+.mailcontainer {
+
+    display: grid;
+    width: 100%;
+    gap: var(--spc-small);
+}
+
+.mail-input {
+    background-color: rgb(44, 44, 44);
+    justify-self: center;
+    width: 100%;
+    max-width: 20em;
+    height: calc(var(--spc-med) * 1.2);
+    color: var(--clr-accent-0);
+    border: 1px transparent;
+    padding-left: 10px;
+    font-size: var(--fs-text);
+
+}
+
+.mail-input:focus,
+.mail-input:focus-within {
+    border: 2px solid var(--clr-primary-2);
+}
+
+.mail-submit {
+    display: flex;
+    justify-self: center;
+    align-items: center;
+    justify-content: center;
+    width: calc(var(--spc-large) * 2);
+    height: calc(var(--spc-med) * 1.2);
+    background-color: var(--clr-block-1);
+    border: 1em solid;
+    background-color: var(--clr-block-2);
+    padding: var(--spc-small);
+    border-image-source: var(--clr-gradient-tb);
+    border-image-slice: 1;
+    border-width:var(--spc-tiny);
+    box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.350);
+}
+
+.mail-submit:hover {
+    cursor: pointer;
+    text-shadow: 0px 0px 6px var(--clr-accent-1);
+}
+
+.contact-links {
+    width: 100%;
+    display: grid;
+    gap: var(--spc-med);
+    grid-template-columns: 1fr var(--spc-large) var(--spc-large) var(--spc-large) 1fr;
+}
+
+.contactbutton {
+    opacity: 0.5;
+    background-color: transparent;
+    border: 1px transparent;
+    display: grid;
+    justify-content: center;
+
+}
+
+.contactbutton:hover {
+    opacity: 1;
+}
+
+.contactbutton img {
+    margin-left: auto;
+    margin-right: auto;
+    width: var(--spc-large);
+    height: var(--spc-large);
 }
 
 
@@ -689,6 +782,11 @@ a[data-hoverglow="true"]:hover {
     .nav-gradient {
         grid-column: span 1;
         background-image: var(--clr-gradient-lr);
+    }
+
+    .contactbox {
+        display: grid;
+        grid-template-columns: 1fr;
     }
     
 }
